@@ -9,11 +9,12 @@ const ingredients = [
 
 const ulEl = document.querySelector('#ingredients');
 
-const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+const list = ingredients.map((ingredient) => {
+  const item = document.createElement('li');
+  item.textContent = ingredient;
+  item.classList.add('item');
+  return item;
+});
 
 
-ulEl.innerHTML = list;
-// return ingredients;
-// const ulEl = document.querySelector('#ingredients');
-
-// const list = ingredients.reduce((str, item) => str + `<li>${item}</li>`, '');
+ulEl.append(...list);
